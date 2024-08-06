@@ -101,9 +101,9 @@ class Controller:
             raise RuntimeError("App must be stopped before applying new settings")
 
         user_settings = dict(
-            interface=self.view.settings.get_interface(),
+            bustype=self.view.settings.get_interface(),
             channel=self.view.settings.get_channel(),
-            baudrate=self.view.settings.get_baudrate(),
+            bitrate=self.view.settings.get_baudrate(),
         )
 
         bus = can.Bus(**{k: v for k, v in user_settings.items() if v})  # type: ignore [arg-type]
